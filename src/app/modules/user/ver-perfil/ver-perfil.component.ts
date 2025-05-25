@@ -63,7 +63,7 @@ export class VerPerfilComponent implements OnInit {
       id: this.id,
       nombre: this.nombre,
       ciudad: this.ciudad.nombre,
-      direccion: this.direccion
+      direccion: this.direccion //hola
     };
     this.userService.editarUsuario(editarUsuario).subscribe({
       next: (response: RespuestaDTO) => {
