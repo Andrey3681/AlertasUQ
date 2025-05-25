@@ -1,0 +1,38 @@
+<!-- src/app/modules/reportes/feature/report-favorite/report-favorite.component.html -->
+<div *ngFor="let reporte of reportes" class="tarjeta-report">
+    <h2 class="titulo">{{ reporte.titulo }}</h2>
+    <div class="contenido">
+      <div class="izquierda">
+        <div class="usuario">{{ reporte.usuario }}</div>
+        <img class="imagen-principal" [src]="reporte.imagen" alt="Imagen del reporte">
+        <div class="info">
+          <div class="fecha" *ngIf="reporte.fecha && reporte.ubicacion">
+            {{ reporte.fecha }} - {{ reporte.ubicacion }}
+          </div>
+          <div class="hora" *ngIf="reporte.hora">{{ reporte.hora }}</div>
+        </div>
+      </div>
+      <div class="derecha">
+        <div class="descripcion">
+          {{ reporte.descripcion }}
+          <div *ngIf="reporte.recompensa" class="recompensa">
+            {{ reporte.recompensa }}
+          </div>
+        </div>
+        <div class="comentarios">
+          <div class="comentarios-header">Comentarios {{ reporte.comentarios }}</div>
+          <div class="comentario-input">
+            <span class="icono-usuario">👤</span>
+            <input type="text" placeholder="Escribir Un Comentario..." />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="acciones">
+      <button>Me Gusta</button>
+      <button>Marcar Como Importante</button>
+      <button>
+        <span>Guardar Reporte</span>
+      </button>
+    </div>
+  </div>

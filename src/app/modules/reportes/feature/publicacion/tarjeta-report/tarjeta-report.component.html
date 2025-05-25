@@ -1,0 +1,15 @@
+<div class="card mb-4 shadow-sm border-0" style="background: linear-gradient(to right, #ffffff, #fff5eb);">
+  <div class="card-body">
+    <!-- Header con título y estado -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h5 class="card-title fw-bold text-primary mb-0">{{ titulo }}</h5>
+      <span class="badge" [ngClass]="getEstadoClass(estado)">{{ estado }}</span>
+    </div>
+
+    <!-- Información de categoría y severidad -->
+    <div class="d-flex gap-2">
+      <span class="badge bg-primary">{{ categoria }}</span>
+      <span class="badge" [ngClass]="getSeveridadClass(severidad)">{{ severidad }}</span>
+    </div>
+  </div>
+</div>

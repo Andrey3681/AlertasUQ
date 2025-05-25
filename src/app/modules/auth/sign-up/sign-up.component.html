@@ -1,0 +1,78 @@
+<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+  <div class="mb-2">
+    <label for="nombre" class="form-label">Nombre:</label>
+    <input 
+      type="text" 
+      class="form-control" 
+      id="nombre" 
+      formControlName="nombre"
+      [ngClass]="{'is-invalid': signUpForm.get('nombre')?.invalid && signUpForm.get('nombre')?.touched}">
+    <div class="invalid-feedback" *ngIf="signUpForm.get('nombre')?.invalid && signUpForm.get('nombre')?.touched">
+      El nombre es requerido
+    </div>
+  </div>
+
+  <div class="mb-2">
+    <label for="ciudad" class="form-label">Ciudad de Residencia:</label>
+    <select 
+      class="form-select" 
+      id="ciudad" 
+      formControlName="ciudad"
+      [ngClass]="{'is-invalid': signUpForm.get('ciudad')?.invalid && signUpForm.get('ciudad')?.touched}">
+      <option value="">Seleccione una ciudad</option>
+      <option *ngFor="let ciudad of ciudades" [value]="ciudad">
+        {{ciudad}}
+      </option>
+    </select>
+    <div class="invalid-feedback" *ngIf="signUpForm.get('ciudad')?.invalid && signUpForm.get('ciudad')?.touched">
+      La ciudad es requerida
+    </div>
+  </div>
+
+  <div class="mb-2">
+    <label for="direccion" class="form-label">Dirección:</label>
+    <input 
+      type="text" 
+      class="form-control" 
+      id="direccion" 
+      formControlName="direccion"
+      [ngClass]="{'is-invalid': signUpForm.get('direccion')?.invalid && signUpForm.get('direccion')?.touched}">
+    <div class="invalid-feedback" *ngIf="signUpForm.get('direccion')?.invalid && signUpForm.get('direccion')?.touched">
+      La dirección es requerida
+    </div>
+  </div>
+
+  <div class="mb-2">
+    <label for="email" class="form-label">Correo:</label>
+    <input 
+      type="email" 
+      class="form-control" 
+      id="email" 
+      formControlName="email"
+      [ngClass]="{'is-invalid': signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched}">
+    <div class="invalid-feedback" *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched">
+      <span *ngIf="signUpForm.get('email')?.errors?.['required']">El correo es requerido</span>
+      <span *ngIf="signUpForm.get('email')?.errors?.['email']">Ingrese un correo válido</span>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">Contraseña:</label>
+    <input 
+      type="password" 
+      class="form-control" 
+      id="password" 
+      formControlName="password"
+      [ngClass]="{'is-invalid': signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched}">
+    <div class="invalid-feedback" *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched">
+      La contraseña es requerida
+    </div>
+  </div>
+
+  <button 
+    type="submit" 
+    class="btn btn-orange" 
+    [disabled]="signUpForm.invalid">
+    REGISTRARSE
+  </button>
+</form>

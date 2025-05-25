@@ -1,0 +1,11 @@
+<div class="reply-container">
+  <div class="reply-to">Respuesta a {{ replyingTo }}</div>
+  <textarea 
+    class="reply-input" 
+    placeholder="Escribe tu respuesta aquí..." 
+    [(ngModel)]="replyText"></textarea>
+  <div class="reply-buttons">
+    <button class="reply-button" (click)="onSubmit()">RESPONDER</button>
+    <button class="cancel-button" (click)="onCancel()">CANCELAR</button>
+  </div>
+</div>

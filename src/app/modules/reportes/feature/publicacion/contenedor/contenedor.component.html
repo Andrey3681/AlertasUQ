@@ -1,0 +1,74 @@
+<div class="publicacion-container">
+  <!-- Indicador de carga -->
+  <div *ngIf="loading" class="text-center">
+      <div class="spinner-border" role="status">
+          <span class="visually-hidden">Cargando...</span>
+      </div>
+  </div>
+
+  <!-- Mensaje de error -->
+  <div *ngIf="error" class="alert alert-danger">
+      {{ error }}
+  </div>
+
+  <!-- Contenido del reporte -->
+  <ng-container *ngIf="!loading && !error && reporte">
+      <app-tarjeta-report
+          [reporteId]="reporte.id"
+          [titulo]="reporte.titulo"
+          [estado]="getEstadoLegible(reporte.estadoReporte)"
+          [categoria]="reporte.categoria.nombre"
+          [severidad]="getSeveridadLegible(reporte.severidad)">
+      </app-tarjeta-report>
+  
+      <div class="mt-3" *ngIf="reporte.fotos.length > 0">
+          <app-acordion [imagenes]="reporte.fotos"></app-acordion>
+      </div>
+  
+      <div class="mt-3">
+          <app-barra-inferior 
+              [reporteId]="reporte.id"
+              [esImportante]="true"
+              [estaGuardado]="false"
+              [cantidadComentarios]="getTotalComentarios()">
+          </app-barra-inferior>
+      </div>
+
+      <!-- Información adicional -->
+      <div class="mt-3 p-3 bg-light rounded">
+          <h5>Detalles del Reporte</h5>
+          <p><strong>Ubicación:</strong> Lat: {{ reporte.ubicacion.latitud }}, Long: {{ reporte.ubicacion.longitud }}, Radio: {{ reporte.ubicacion.radio }}</p>
+          <p><strong>Estado:</strong> {{ getEstadoLegible(reporte.estadoReporte) }}</p>
+          <p><strong>Categoría:</strong> {{ reporte.categoria.nombre }}</p>
+          <p><strong>Severidad:</strong> {{ getSeveridadLegible(reporte.severidad) }}</p>
+          <p><strong>Importancia:</strong> {{ reporte.numeroImportancia }}</p>
+          <p><strong>Resuelto:</strong> {{ getEstadoLegible(reporte.resuelto) }}</p>
+      </div>
+
+      <!-- Sección de comentarios -->
+      <div class="mt-3">
+          <h5>Comentarios</h5>
+          <div class="comentarios-container">
+              <ng-container *ngFor="let comentario of reporte.comentarios">
+                  <div class="comentario-principal p-3 mb-2 border rounded">
+                      <div class="d-flex justify-content-between">
+                          <small class="text-muted">Usuario: {{ comentario.idUsuario }}</small>
+                          <small class="text-muted">{{ formatearFecha(comentario.fechaComentario) }}</small>
+                      </div>
+                      <p class="mb-2">{{ comentario.contenido }}</p>
+                      
+                      <div class="respuestas ms-4" *ngIf="comentario.comentarios?.length">
+                          <div class="respuesta p-2 mb-2 border-start" *ngFor="let respuesta of comentario.comentarios">
+                              <div class="d-flex justify-content-between">
+                                  <small class="text-muted">Usuario: {{ respuesta.idUsuario }}</small>
+                                  <small class="text-muted">{{ formatearFecha(respuesta.fechaComentario) }}</small>
+                              </div>
+                              <p class="mb-1">{{ respuesta.contenido }}</p>
+                          </div>
+                      </div>
+                  </div>
+              </ng-container>
+          </div>
+      </div>
+  </ng-container>
+</div>

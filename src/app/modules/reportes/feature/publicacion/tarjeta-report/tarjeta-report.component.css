@@ -1,0 +1,24 @@
+.cursor-pointer {
+    cursor: pointer;
+  }
+  
+  .cursor-pointer:hover {
+    opacity: 0.8;
+  }
+  
+  .badge {
+    font-size: 0.85rem;
+    padding: 0.5em 0.8em;
+  }
+  
+  .text-danger {
+    color: #dc3545 !important;
+  }
+  
+  .text-warning {
+    color: #ffc107 !important;
+  }
+  
+  .text-info {
+    color: #0dcaf0 !important;
+  }

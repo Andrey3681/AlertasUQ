@@ -1,0 +1,40 @@
+<div class="container py-4">
+    <h2 class="fw-bold text-warning mb-4">Generar Reportes</h2>
+    <div class="bg-light rounded-4 p-4 shadow-sm">
+      <div class="mb-4">
+        <span class="fw-bold fs-5 bg-warning px-3 py-2 rounded-3">FILTROS:</span>
+      </div>
+      <div class="row mb-4">
+        <!-- Fecha -->
+        <div class="col-md-4 mb-3">
+          <label class="form-label fw-semibold">Fecha:</label>
+          <input type="date" class="form-control" [(ngModel)]="fechaSeleccionada" (change)="onFechaChange($event)">
+        </div>
+        <!-- Categoría -->
+        <div class="col-md-4 mb-3">
+          <label class="form-label fw-semibold">Categoría:</label>
+          <select class="form-select" [(ngModel)]="categoriaSeleccionada" (change)="onCategoriaChange($event)">
+            <option value="">Seleccione una categoría</option>
+            <option *ngFor="let categoria of categorias" [value]="categoria">
+              {{ categoria }}
+            </option>
+          </select>
+        </div>
+        <!-- Severidad -->
+        <div class="col-md-4 mb-3">
+          <label class="form-label fw-semibold">Severidad:</label>
+          <select class="form-select" [(ngModel)]="severidadSeleccionada" (change)="onSeveridadChange($event)">
+            <option *ngFor="let sev of severidades" [value]="sev">{{ sev }}</option>
+          </select>
+        </div>
+      </div>
+      <!-- Mapa -->
+      <div class="mb-4">
+        <label class="form-label fw-semibold">Sector:</label>
+        <div class="border rounded-3 p-2" style="min-height: 250px;">
+          <!-- Aquí insertas tu componente de mapa -->
+          <app-maps> </app-maps>
+        </div>
+      </div>
+    </div>
+  </div>

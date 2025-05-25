@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <div class="icon-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="nav-icon">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z" />
+                </svg>
+            </div>
+            <a class="nav-link active" aria-current="page" [routerLink]="['/panel/inicio-usuario']" routerLinkActive="active">Home</a>
+        </li>
+      
+          <li class="nav-item dropdown">
+            <div class="icon-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="nav-icon">
+                <path d="M3 4a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4zm0 6a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-8zm10 1v6h-2V11h2z"/>
+              </svg>
+            </div>
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Reportes
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['/panel/reportes/crear']" routerLinkActive="active">Crear reporte</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/panel/reportes/mis-reportes']" routerLinkActive="active">Mis reportes</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <div class="icon-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="nav-icon">
+                <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm9-9v7h-2v-7c0-2.5-1.5-4.8-4-5.8V5c0-.6-.4-1-1-1s-1 .4-1 1v2H9V5c0-.6-.4-1-1-1s-1 .4-1 1v2c-2.5 1-4 3.3-4 5.8v7H3v-7c0-3.6 2.1-6.8 5-8.7V5c0-.6-.4-1-1-1S6 4.4 6 5v2c-2.5 1-4 3.3-4 5.8v7h2v-7c0-2.5 1.5-4.8 4-5.8V5c0-.6.4-1 1-1s1 .4 1 1v2h4V5c0-.6.4-1 1-1s1 .4 1 1v2c2.5 1 4 3.3 4 5.8z"/>
+              </svg>
+              <div class="notification-badge">1</div>
+            </div>
+            <a class="nav-link active" aria-current="page" [routerLink]="['/panel/notifications']" routerLinkActive="active">notificaciones</a>
+          </li>
+          <li class="nav-item">
+            <div class="icon-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="nav-icon">
+                <path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4zm0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4z"/>
+              </svg>
+            </div>
+            <a class="nav-link active" aria-current="page" [routerLink]="['/panel/user/ver']" routerLinkActive="active">mi cuenta</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

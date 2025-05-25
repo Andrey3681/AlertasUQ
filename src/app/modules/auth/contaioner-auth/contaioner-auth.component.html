@@ -1,0 +1,32 @@
+
+<div class="login-container">
+    <div class="login-card">
+      <div class="login-image"></div>
+      <div class="login-form">
+        <ul class="nav nav-tabs mb-4">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [class.active]="activeTab === 'login'"
+              (click)="setTab('login')"
+            >
+              INICIAR SESIÓN
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [class.active]="activeTab === 'register'"
+              (click)="setTab('register')"
+            >
+              REGISTRARSE
+            </a>
+          </li>
+        </ul>
+  
+        <app-login-in *ngIf="activeTab === 'login'"></app-login-in>
+        <app-sign-up *ngIf="activeTab === 'register'"></app-sign-up>
+      </div>
+    </div>
+  </div>
+  

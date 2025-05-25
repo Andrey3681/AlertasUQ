@@ -1,0 +1,38 @@
+<div class="comentarios-container">
+    <div class="error-message" *ngIf="error">{{ error }}</div>
+    
+    <!-- Formulario para nuevo comentario -->
+    <div class="nuevo-comentario">
+        <textarea 
+            [(ngModel)]="nuevoComentario"
+            placeholder="Escribe un comentario..."
+            class="form-control"
+            rows="3"></textarea>
+        <button 
+            (click)="enviarComentario()"
+            [disabled]="!nuevoComentario.trim() || loading"
+            class="btn btn-primary mt-2">
+            {{ loading ? 'Enviando...' : 'Enviar Comentario' }}
+        </button>
+    </div>
+
+    <!-- Lista de comentarios -->
+    <div class="lista-comentarios mt-4">
+        <div *ngIf="loading" class="text-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Cargando...</span>
+            </div>
+        </div>
+
+        <div *ngIf="!loading && comentarios.length === 0" class="text-center">
+            No hay comentarios aún. ¡Sé el primero en comentar!
+        </div>
+
+        <app-comment-item
+            *ngFor="let comentario of comentarios"
+            [comentario]="comentario"
+            (respuestaEnviada)="onRespuestaEnviada(comentario, $event)"
+            class="mb-3">
+        </app-comment-item>
+    </div>
+</div>

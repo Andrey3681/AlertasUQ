@@ -1,0 +1,11 @@
+body {
+    background-color: #f1f7fb;
+  }
+  .btn-orange {
+    background-color: #fca652;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    width: 100%;
+  }
+  

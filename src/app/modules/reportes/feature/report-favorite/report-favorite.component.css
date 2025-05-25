@@ -1,0 +1,147 @@
+.tarjeta-report {
+    background: #ffe5cf;
+    border-radius: 15px;
+    padding: 18px 20px 10px 20px;
+    max-width: 800px;
+    margin: 24px auto;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  
+  .titulo {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .contenido {
+    display: flex;
+    gap: 18px;
+  }
+  
+  .izquierda {
+    flex: 1.1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .usuario {
+    background: #e6f7ff;
+    color: #222;
+    font-size: 0.95rem;
+    border-radius: 5px 5px 0 0;
+    padding: 2px 8px;
+    margin-bottom: 2px;
+    font-weight: 500;
+  }
+  
+  .imagen-principal {
+    width: 220px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  .info {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: #444;
+  }
+  
+  .fecha {
+    margin-bottom: 2px;
+  }
+  
+  .hora {
+    font-weight: bold;
+    font-size: 0.95rem;
+  }
+  
+  .derecha {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .descripcion {
+    font-size: 1rem;
+    margin-bottom: 18px;
+    color: #222;
+  }
+  
+  .recompensa {
+    margin-top: 8px;
+    font-weight: bold;
+    color: #b97a56;
+  }
+  
+  .comentarios {
+    background: #fff3e6;
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-top: 10px;
+  }
+  
+  .comentarios-header {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  
+  .comentario-input {
+    display: flex;
+    align-items: center;
+    background: #f7d6b3;
+    border-radius: 6px;
+    padding: 4px 8px;
+  }
+  
+  .comentario-input input {
+    border: none;
+    background: transparent;
+    outline: none;
+    flex: 1;
+    font-size: 0.98rem;
+    padding: 4px 6px;
+  }
+  
+  .icono-usuario {
+    margin-right: 6px;
+    font-size: 1.1rem;
+  }
+  
+  .acciones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18px;
+    gap: 10px;
+  }
+  
+  .acciones button {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background 0.2s;
+  }
+  
+  .acciones button:hover {
+    background: #ffd6b3;
+  }
+  
+  @media (max-width: 700px) {
+    .contenido {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .imagen-principal {
+      width: 100%;
+      height: 180px;
+    }
+  }

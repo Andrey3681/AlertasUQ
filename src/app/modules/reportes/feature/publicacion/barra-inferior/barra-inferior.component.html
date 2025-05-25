@@ -1,0 +1,43 @@
+<div class="barra-inferior">
+    <!-- Sección de comentarios -->
+    <div class="comentarios-section">
+      <div class="input-group mb-2">
+        <input 
+          type="text" 
+          class="form-control" 
+          placeholder="Escribir un comentario..." 
+          [(ngModel)]="nuevoComentario"
+          (keyup.enter)="enviarComentario()">
+        <button 
+          class="btn btn-primary" 
+          (click)="enviarComentario()"
+          [disabled]="!nuevoComentario.trim()">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+      <button 
+        class="btn btn-link text-decoration-none" 
+        (click)="verComentarios()">
+        <i class="fas fa-comments"></i> 
+        {{ cantidadComentarios }} Comentarios
+      </button>
+    </div>
+  
+    <!-- Botones de acción -->
+    <div class="acciones-section">
+      <button 
+        class="btn btn-outline-warning" 
+        (click)="marcarImportante()"
+        [class.active]="esImportante">
+        <i class="fas" [class.fa-star]="!esImportante" [class.fa-star-fill]="esImportante"></i>
+        {{ esImportante ? 'Importante' : 'Marcar Importante' }}
+      </button>
+      <button 
+        class="btn btn-outline-primary" 
+        (click)="guardar()"
+        [class.active]="estaGuardado">
+        <i class="fas" [class.fa-bookmark]="!estaGuardado" [class.fa-bookmark-fill]="estaGuardado"></i>
+        {{ estaGuardado ? 'Guardado' : 'Guardar' }}
+      </button>
+    </div>
+  </div>

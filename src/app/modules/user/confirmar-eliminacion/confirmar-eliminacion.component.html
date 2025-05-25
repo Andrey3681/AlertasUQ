@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Confirmar Eliminación</h2>
+<mat-dialog-content>
+  <p>{{ data.mensaje }}</p>
+  <p>Por favor, ingresa tu contraseña para confirmar:</p>
+  <mat-form-field appearance="fill" class="w-100">
+    <mat-label>Contraseña</mat-label>
+    <input matInput type="password" [(ngModel)]="password" required>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-raised-button color="warn" (click)="onConfirm()" [disabled]="!password">
+    Eliminar Cuenta
+  </button>
+</mat-dialog-actions>

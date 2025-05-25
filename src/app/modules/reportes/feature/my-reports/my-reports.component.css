@@ -1,0 +1,10 @@
+.overflow-auto::-webkit-scrollbar {
+    width: 8px;
+  }
+  .overflow-auto::-webkit-scrollbar-thumb {
+    background: #ffc48c;
+    border-radius: 4px;
+  }
+  .overflow-auto::-webkit-scrollbar-track {
+    background: #f5faff;
+  }

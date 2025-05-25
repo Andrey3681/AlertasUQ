@@ -1,0 +1,52 @@
+<div class="container mt-4">
+  <div class="card shadow">
+    <div class="card-header bg-primary text-white">
+      <h2 class="mb-0">Perfil de Usuario</h2>
+    </div>
+    <div class="card-body">
+      <div class="row mb-3">
+        <div class="col-md-4 fw-bold">ID:</div>
+        <div class="col-md-8">{{id}}</div>
+      </div>
+    
+      <div class="row mb-3">
+        <div class="col-md-4 fw-bold">Nombre:</div>
+        <div class="col-md-8">
+          <input type="text" class="form-control" [(ngModel)]="nombre">
+        </div>
+      </div>
+    
+      <div class="row mb-3">
+        <div class="col-md-4 fw-bold">Email:</div>
+        <div class="col-md-8">{{email}}</div>
+      </div>
+    
+      <div class="row mb-3">
+        <div class="col-md-4 fw-bold">Ciudad:</div>
+        <div class="col-md-8">
+          <input type="text" class="form-control" [(ngModel)]="ciudad.nombre">
+        </div>
+      </div>
+    
+      <div class="row mb-3">
+        <div class="col-md-4 fw-bold">Dirección:</div>
+        <div class="col-md-8">
+          <input type="text" class="form-control" [(ngModel)]="direccion">
+        </div>
+      </div>
+    
+      <div class="row mb-3">
+        <div class="col-md-4 fw-bold">Fecha de Registro:</div>
+        <div class="col-md-8">{{fechaRegistro | date:'dd/MM/yyyy'}}</div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-12 d-flex justify-content-center gap-2">
+          <button class="btn btn-primary" (click)="editarDatos()">Guardar Cambios</button>
+          <button class="btn btn-danger" (click)="eliminarCuenta()">Eliminar</button>
+          <button class="btn btn-secondary" (click)="salir()">Salir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

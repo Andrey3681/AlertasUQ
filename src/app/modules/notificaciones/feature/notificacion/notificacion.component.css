@@ -1,0 +1,90 @@
+.notification-container {
+  display: flex;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.notification-container.unread {
+  background-color: #f0f7ff;
+  border-left: 4px solid #007bff;
+}
+
+.notification-initial {
+  width: 40px;
+  height: 40px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.notification-content {
+  flex: 1;
+}
+
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.notification-username {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.notification-time {
+  color: #666;
+  font-size: 0.85em;
+}
+
+.notification-message {
+  color: #333;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.notification-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.action-button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: all 0.2s ease;
+  background-color: #e9ecef;
+  color: #495057;
+}
+
+.action-button:hover {
+  background-color: #dee2e6;
+}
+
+.action-button.read {
+  background-color: #28a745;
+  color: white;
+}
+
+.action-button.delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.action-button.delete:hover {
+  background-color: #c82333;
+}

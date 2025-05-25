@@ -1,0 +1,23 @@
+body {
+    background-color: #f8f9fa;
+  }
+  .login-form {
+    padding: 40px;
+    background-color: white;
+  }
+  .forgot-password {
+    font-size: 0.875rem;
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .btn-orange {
+    background-color: #fca652;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    width: 100%;
+  }
+  

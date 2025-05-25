@@ -1,0 +1,199 @@
+.report-form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.is-invalid {
+  border-color: #dc3545;
+}
+
+.error-feedback {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.ubicacion-imagen-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .ubicacion-imagen-container {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.mapa-container {
+  position: relative;
+  height: 400px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.mapa-info {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 8px 12px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mapa-info p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Asegurarse de que el mapa ocupe todo el contenedor */
+::ng-deep app-maps {
+  display: block;
+  height: 100%;
+}
+
+::ng-deep #map {
+  height: 100%;
+  width: 100%;
+}
+
+.selector-archivo {
+  border: 2px dashed #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.selector-archivo:hover {
+  border-color: #007bff;
+}
+
+.file-input {
+  display: none;
+}
+
+.imagen-preview {
+  position: relative;
+  width: 100%;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagen-preview img {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+}
+
+.imagen-preview p {
+  margin-top: 10px;
+  color: #666;
+}
+
+.remove-image {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-image svg {
+  fill: white;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.publicar-button,
+.cancelar-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.publicar-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.publicar-button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.cancelar-button {
+  background-color: #6c757d;
+  color: white;
+}
+
+.cancelar-button:hover:not(:disabled) {
+  background-color: #5a6268;
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.has-file {
+  border-style: solid;
+  border-color: #28a745;
+}

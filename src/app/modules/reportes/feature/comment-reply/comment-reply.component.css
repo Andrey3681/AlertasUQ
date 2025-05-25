@@ -1,0 +1,61 @@
+.reply-container {
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 10px;
+  }
+
+  .reply-to {
+    font-size: 0.8rem;
+    color: #777;
+    margin-bottom: 5px;
+  }
+
+  .reply-input {
+    width: 100%;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 8px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    box-sizing: border-box; /* Para que el padding no afecte el ancho total */
+  }
+
+  .reply-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+  }
+
+  .reply-button {
+    background-color: #fca652; /* Color naranja */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+  }
+
+  .reply-button:hover {
+    background-color: #e08e3e; /* Tono más oscuro al pasar el ratón */
+  }
+
+  .cancel-button {
+    background-color: #6c757d; /* Color gris */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+  }
+
+  .cancel-button:hover {
+    background-color: #5a6268; /* Tono más oscuro al pasar el ratón */
+  }

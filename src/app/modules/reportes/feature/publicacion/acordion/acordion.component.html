@@ -1,0 +1,22 @@
+<div class="accordion" id="imagenAccordion">
+    <div class="accordion-item" *ngFor="let imagen of imagenes; let i = index">
+      <h2 class="accordion-header">
+        <button class="accordion-button" 
+                [class.collapsed]="imagenActiva !== i"
+                type="button" 
+                (click)="cambiarImagen(i)"
+                [attr.aria-expanded]="imagenActiva === i">
+          Imagen {{i + 1}}
+        </button>
+      </h2>
+      <div class="accordion-collapse collapse" 
+           [class.show]="imagenActiva === i">
+        <div class="accordion-body p-0">
+          <img [src]="imagen" 
+               class="img-fluid w-100" 
+               [alt]="'Imagen ' + (i + 1)"
+               style="max-height: 400px; object-fit: cover;">
+        </div>
+      </div>
+    </div>
+  </div>

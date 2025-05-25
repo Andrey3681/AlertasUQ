@@ -1,0 +1,27 @@
+<div class="notification-container" [ngClass]="{'unread': !notification.read}">
+  <div class="notification-initial">
+    {{ notification.initial }}
+  </div>
+  <div class="notification-content">
+    <div class="notification-header">
+      <span class="notification-username">{{ notification.username }}</span>
+      <span class="notification-time">{{ getTimeAgo(notification.date) }}</span>
+    </div>
+    <div class="notification-message">
+      {{ notification.message }}
+    </div>
+    <div class="notification-actions">
+      <button 
+        class="action-button" 
+        [ngClass]="{'read': notification.read}"
+        (click)="onMarkAsRead($event)">
+        {{ notification.read ? 'Leído' : 'Marcar como leído' }}
+      </button>
+      <button 
+        class="action-button delete"
+        (click)="onDelete($event)">
+        Eliminar
+      </button>
+    </div>
+  </div>
+</div>

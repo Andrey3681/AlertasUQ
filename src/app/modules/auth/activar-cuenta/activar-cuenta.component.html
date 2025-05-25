@@ -1,0 +1,51 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title text-center mb-4">Activar Cuenta</h3>
+            
+            <div *ngIf="mensaje" [class]="'alert ' + (error ? 'alert-danger' : 'alert-success')">
+              {{ mensaje }}
+            </div>
+  
+            <form [formGroup]="activarCuentaForm" (ngSubmit)="onSubmit()">
+              <div class="form-group mb-3">
+                <label for="email">Email</label>
+                <input 
+                  type="email" 
+                  formControlName="email" 
+                  class="form-control" 
+                  [class.is-invalid]="activarCuentaForm.get('email')?.invalid && activarCuentaForm.get('email')?.touched"
+                  required>
+                <div class="invalid-feedback" *ngIf="activarCuentaForm.get('email')?.invalid && activarCuentaForm.get('email')?.touched">
+                  <span *ngIf="activarCuentaForm.get('email')?.errors?.['required']">El email es requerido</span>
+                  <span *ngIf="activarCuentaForm.get('email')?.errors?.['email']">Ingrese un email válido</span>
+                </div>
+              </div>
+  
+              <div class="form-group mb-3">
+                <label for="codigoActivacion">Código de Activación</label>
+                <input 
+                  type="text" 
+                  formControlName="codigoActivacion" 
+                  class="form-control"
+                  [class.is-invalid]="activarCuentaForm.get('codigoActivacion')?.invalid && activarCuentaForm.get('codigoActivacion')?.touched"
+                  required>
+                <div class="invalid-feedback" *ngIf="activarCuentaForm.get('codigoActivacion')?.invalid && activarCuentaForm.get('codigoActivacion')?.touched">
+                  El código de activación es requerido
+                </div>
+              </div>
+  
+              <button 
+                type="submit" 
+                class="btn btn-primary w-100"
+                [disabled]="activarCuentaForm.invalid">
+                Activar Cuenta
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

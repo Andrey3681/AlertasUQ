@@ -1,0 +1,121 @@
+<div class="container mt-4">
+  <!-- Loading State -->
+  <div *ngIf="loading" class="text-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error" class="alert alert-danger" role="alert">
+    {{ error }}
+  </div>
+
+  <!-- Tabs -->
+  <ul class="nav nav-tabs mb-4">
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="filtroActual === 'sinVerificar'" (click)="cambiarFiltro('sinVerificar')">
+        Sin Verificar
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="filtroActual === 'enRevision'" (click)="cambiarFiltro('enRevision')">
+        En Revisión
+      </a>
+    </li>
+  </ul>
+
+  <!-- Reports List -->
+  <div *ngIf="!loading && !error" class="row g-4">
+    <div *ngFor="let reporte of reportes" class="col-12">
+      <div class="card shadow-sm">
+        <div class="row g-0">
+          <!-- Image Column -->
+          <div class="col-md-4">
+            <img [src]="reporte.fotos && reporte.fotos.length > 0 ? reporte.fotos[0] : 'assets/images/no-image.png'"
+                 class="img-fluid rounded-start h-100 object-fit-cover"
+                 [alt]="reporte.titulo"
+                 onerror="this.src='assets/images/no-image.png'">
+          </div>
+          
+          <!-- Content Column -->
+          <div class="col-md-8">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="card-title">{{ reporte.titulo }}</h5>
+                <div class="d-flex align-items-center gap-2">
+                  <span class="badge" [ngClass]="{
+                    'bg-warning': reporte.estadoReporte === 'PENDIENTE',
+                    'bg-success': reporte.estadoReporte === 'VERIFICADO',
+                    'bg-danger': reporte.estadoReporte === 'RECHAZADO',
+                    'bg-info': reporte.estadoReporte === 'RESUELTO'
+                  }">
+                    {{ reporte.estadoReporte }}
+                  </span>
+                  <div class="form-check">
+                    <input class="form-check-input" 
+                           type="radio" 
+                           name="reporteSeleccionado" 
+                           [value]="reporte.id"
+                           (change)="onReporteSeleccionado(reporte)">
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Comments Section -->
+              <div class="mt-3">
+                <h6 class="text-muted">Comentarios</h6>
+                <div class="comments-container" style="max-height: 150px; overflow-y: auto;">
+                  <div *ngFor="let comentario of reporte.comentarios" class="comment mb-2">
+                    <small class="text-muted">{{ comentario.idUsuario }}</small>
+                    <p class="mb-1">{{ comentario.contenido }}</p>
+                  </div>
+                  <div *ngIf="!reporte.comentarios || reporte.comentarios.length === 0" class="text-muted">
+                    No hay comentarios aún
+                  </div>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="mt-3">
+                <div class="d-flex gap-2">
+                  <button class="btn btn-success" 
+                          [disabled]="!reporteSeleccionado"
+                          (click)="verificarReporte()">
+                    Verificar
+                  </button>
+                  <button class="btn btn-danger" 
+                          [disabled]="!reporteSeleccionado"
+                          (click)="rechazarReporte()">
+                    Rechazar
+                  </button>
+                  <button class="btn btn-danger" 
+                          [disabled]="!reporteSeleccionado"
+                          (click)="eliminarReporte()">
+                    Eliminar
+                  </button>
+                </div>
+
+                <!-- Motivo de Rechazo -->
+                <div class="mt-2" *ngIf="mostrarMotivoRechazo">
+                  <textarea class="form-control" 
+                            placeholder="Ingrese el motivo del rechazo"
+                            [(ngModel)]="motivoRechazo"
+                            rows="3">
+                  </textarea>
+                  <div class="d-flex justify-content-end mt-2">
+                    <button class="btn btn-primary" 
+                            [disabled]="!motivoRechazo"
+                            (click)="confirmarRechazo()">
+                      Confirmar Rechazo
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

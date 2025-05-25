@@ -1,0 +1,22 @@
+<div class="notification-list">
+  <div class="notifications" *ngIf="!loading">
+    <app-notificacion
+      *ngFor="let notification of filteredNotifications"
+      [notification]="{
+        id: notification.id,
+        initial: notification.remitente.charAt(0),
+        username: notification.remitente,
+        message: notification.mensaje,
+        type: isNotificacionNoLeida(notification.estado) ? 'news' : 'all',
+        date: notification.fecha,
+        read: isNotificacionLeida(notification.estado)
+      }"
+      (markAsRead)="onMarkAsRead($event)"
+      (delete)="onDelete($event)">
+    </app-notificacion>
+  </div>
+
+  <div class="loading" *ngIf="loading">
+    Cargando notificaciones...
+  </div>
+</div>
