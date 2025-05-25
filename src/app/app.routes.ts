@@ -27,45 +27,60 @@ export const routes: Routes = [
         children:[
             {
                 path:'inicio-usuario',
-                loadComponent:() => import('./modules/inicio-usuario/inicio-usuario.component').then(m => InicioUsuarioComponent),
+                loadComponent:() => import('./modules/inicio-usuario/inicio-usuario.component').then(m => InicioUsuarioComponent)
+                /*,
                 canActivate: [RoleGuard],
                 data: { roles: ['ROLE_USUARIO'] }
+                */
             },
             {
                 path:'notifications',
-                loadComponent:() => import('./modules/notificaciones/feature/notification-list/notification-list.component').then(m => NotificationListComponent),
+                loadComponent:() => import('./modules/notificaciones/feature/notification-list/notification-list.component').then(m => NotificationListComponent)
+                        
+                /*,
                 canActivate: [RoleGuard],
                 data: { roles: ['ROLE_USUARIO','ROLE_MODERADOR'] }
+                */
             },
             {
                 path:'reportes',
-                loadChildren:() => import('./modules/reportes/feature/reportes.routes').then(m => m.REPORTES_ROUTES),
+                loadChildren:() => import('./modules/reportes/feature/reportes.routes').then(m => m.REPORTES_ROUTES)
+                /*,
                 canActivate: [RoleGuard],
                 data: { roles: ['ROLE_USUARIO'] }
+                */
             },
             {
                 path:'user',
-                loadChildren:() => import('./modules/user/user.routes').then(m => m.userRoutes),
+                loadChildren:() => import('./modules/user/user.routes').then(m => m.userRoutes)
+                /*,
                 canActivate: [RoleGuard],
                 data: { roles: ['ROLE_USUARIO','ROLE_MODERADOR'] }
+                */
             },
             {
                 path:'estadisticas',
                 loadComponent:() => import('./modules/Estadisticas/feature/report-estadistica/report-estadistica.component').then(m => ReportEstadisticaComponent),
+                /*,
                 canActivate: [RoleGuard],
                 data: { roles: ['ROLE_MODERADOR'] }
+                */
             },
             {
                 path:'categoria',
                 loadChildren:() => import('./modules/categoria/feature/categoria.routes').then(m => CATEGORIA_ROUTES),
-                canActivate: [RoleGuard],
+                /*,
+                    canActivate: [RoleGuard],
                 data: { roles: ['ROLE_MODERADOR'] }
+                */
             },
             {
                 path:'listarAllReportes',
                 loadComponent:() => import('./modules/listar-all-reports/listar-all-reports.component').then(m => ListarAllReportsComponent),
+                /*,
                 canActivate: [RoleGuard],
                 data: { roles: ['ROLE_MODERADOR'] }
+                */
             },
             {
                 path: '',
